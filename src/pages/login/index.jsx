@@ -1,8 +1,8 @@
 const Login = () => {
   return (
-    <div className="hero min-h-screen bg-base-200">
+    <section className="hero min-h-screen bg-base-200">
       <div className="hero-content text-center">
-        <div className="max-w-md">
+        <div className="max-w-2xl">
           <h1 className="text-5xl font-bold">
             Embark on a Seamless Conversational Journey 🚀
           </h1>
@@ -13,7 +13,7 @@ const Login = () => {
           <button className="btn btn-primary">Let&apos;s chat!</button>
         </div>
       </div>
-    </div>
+    </section>
   );
 };
 
