@@ -1,5 +1,13 @@
+import ChatBox from "../../components/chat-box";
+import SendMessage from "../../components/send-message";
+
 const ChatRoom = () => {
-  return <div>ChatRoom</div>;
+  return (
+    <>
+      <ChatBox />
+      <SendMessage />
+    </>
+  );
 };
 
 export default ChatRoom;
