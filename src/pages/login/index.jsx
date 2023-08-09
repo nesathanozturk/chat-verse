@@ -1,4 +1,8 @@
+import useAuthContext from "../../hooks/use-auth-context";
+
 const Login = () => {
+  const { currentUser } = useAuthContext();
+
   return (
     <section className="hero min-h-screen bg-base-200">
       <div className="hero-content text-center">
