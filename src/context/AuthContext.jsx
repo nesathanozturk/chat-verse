@@ -1,5 +1,5 @@
 import { createContext, useState, useEffect } from "react";
-import { signInWithRedirect, onAuthStateChanged } from "firebase/auth";
+import { signInWithRedirect, onAuthStateChanged, signOut } from "firebase/auth";
 
 import { auth, provider } from "../config/firebase";
 
@@ -16,10 +16,19 @@ const AuthProvider = ({ children }) => {
     }
   };
 
+  const handleSignOut = async () => {
+    try {
+      await signOut(auth);
+    } catch (error) {
+      console.log(error);
+    }
+  };
+
   const valueToShare = {
     currentUser,
     setCurrentUser,
     handleLogin,
+    handleSignOut,
   };
 
   useEffect(() => {
