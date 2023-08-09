@@ -1,5 +1,5 @@
-import { createContext, useState } from "react";
-import { signInWithRedirect } from "firebase/auth";
+import { createContext, useState, useEffect } from "react";
+import { signInWithRedirect, onAuthStateChanged } from "firebase/auth";
 
 import { auth, provider } from "../config/firebase";
 
@@ -21,6 +21,14 @@ const AuthProvider = ({ children }) => {
     setCurrentUser,
     handleLogin,
   };
+
+  useEffect(() => {
+    const unsubscribe = onAuthStateChanged(auth, (user) => {
+      setCurrentUser(user);
+    });
+
+    return unsubscribe();
+  }, []);
 
   return (
     <AuthContext.Provider value={valueToShare}>{children}</AuthContext.Provider>
