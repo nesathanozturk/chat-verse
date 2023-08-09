@@ -1,4 +1,4 @@
-import { createContext, useState, useEffect, useRef } from "react";
+import { createContext, useState, useEffect } from "react";
 import {
   addDoc,
   collection,
@@ -20,8 +20,6 @@ const ChatProvider = ({ children }) => {
   const [messages, setMessages] = useState([]);
 
   const { currentUser } = useAuthContext();
-
-  const messagesEndRef = useRef();
 
   useEffect(() => {
     const q = query(
@@ -68,18 +66,11 @@ const ChatProvider = ({ children }) => {
     setValue("");
   };
 
-  const scrollToBottom = () => {
-    messagesEndRef.current.scrollIntoView({ behavior: "smooth" });
-  };
-
-  useEffect(() => scrollToBottom, [messages]);
-
   const valueToShare = {
     value,
     messages,
     handleChange,
     handleSubmit,
-    messagesEndRef,
   };
 
   return (
