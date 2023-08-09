@@ -1,16 +1,7 @@
-import { useState } from "react";
+import useChatContext from "../../hooks/use-chat-context";
 
 const SendMessage = () => {
-  const [value, setValue] = useState("");
-
-  const handleChange = (e) => {
-    setValue(e.target.value);
-  };
-
-  const handleSubmit = (e) => {
-    e.preventDefault();
-    setValue("");
-  };
+  const { value, handleChange, handleSubmit } = useChatContext();
 
   return (
     <div className="bg-gray-700 fixed bottom-0 w-full py-10">
