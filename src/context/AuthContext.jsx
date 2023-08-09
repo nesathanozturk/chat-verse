@@ -7,6 +7,7 @@ const AuthContext = createContext();
 
 const AuthProvider = ({ children }) => {
   const [currentUser, setCurrentUser] = useState(null);
+  const [loading, setLoading] = useState(true);
 
   const handleLogin = async () => {
     try {
@@ -34,13 +35,16 @@ const AuthProvider = ({ children }) => {
   useEffect(() => {
     const unsubscribe = onAuthStateChanged(auth, (user) => {
       setCurrentUser(user);
+      setLoading(false);
     });
 
     return unsubscribe();
   }, []);
 
   return (
-    <AuthContext.Provider value={valueToShare}>{children}</AuthContext.Provider>
+    <AuthContext.Provider value={valueToShare}>
+      {!loading && children}
+    </AuthContext.Provider>
   );
 };
 
