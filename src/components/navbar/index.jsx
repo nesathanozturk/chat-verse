@@ -14,7 +14,9 @@ const Navbar = () => {
   return (
     <header className="navbar fixed z-10 bg-primary text-primary-content">
       <nav className="containerWrapper flex justify-between">
-        <a className="btn btn-ghost normal-case text-xl">Chatverse</a>
+        <a href="/" className="btn btn-ghost normal-case text-xl">
+          Chatverse
+        </a>
         {isButtonHidden}
       </nav>
     </header>
