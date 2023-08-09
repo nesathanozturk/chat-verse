@@ -12,6 +12,7 @@ const AuthProvider = ({ children }) => {
   const handleLogin = async () => {
     try {
       await signInWithRedirect(auth, provider);
+      alert("Login successful!");
     } catch (error) {
       console.log(error);
     }
@@ -20,6 +21,7 @@ const AuthProvider = ({ children }) => {
   const handleSignOut = async () => {
     try {
       await signOut(auth);
+      alert("Sign out successful!");
     } catch (error) {
       console.log(error);
     }
