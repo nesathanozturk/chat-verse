@@ -1,7 +1,18 @@
+import { useEffect } from "react";
+import { useNavigate } from "react-router-dom";
+
 import useAuthContext from "../../hooks/use-auth-context";
 
 const Login = () => {
   const { currentUser, handleLogin } = useAuthContext();
+
+  const navigate = useNavigate();
+
+  useEffect(() => {
+    if (currentUser) {
+      navigate("/chatroom");
+    }
+  }, [currentUser]);
 
   return (
     <section className="hero min-h-screen bg-base-200">
