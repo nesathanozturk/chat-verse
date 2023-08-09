@@ -1,21 +1,27 @@
+import useAuthContext from "../../hooks/use-auth-context";
+
 const Message = ({ messages }) => {
-  const renderedMessages = messages.map((message) => (
-    <div key={message.id}>
-      <div className="chat chat-start">
-        <div className="chat-image avatar">
-          <div className="w-10 rounded-full">
-            <img
-              src="
-            https://avatars.githubusercontent.com/u/107864503?v=4"
-              alt={message.name}
-            />
+  const { currentUser } = useAuthContext();
+
+  const renderedMessages = messages.map((message) => {
+    const messageClass = `chat ${
+      message.uid === currentUser.uid ? "chat-end" : "chat-start"
+    }`;
+
+    return (
+      <div key={message.id}>
+        <div className={messageClass}>
+          <div className="chat-image avatar">
+            <div className="w-10 rounded-full">
+              <img src={message.avatar} alt={message.name} />
+            </div>
           </div>
+          <div className="chat-header">{message.name}</div>
+          <div className="chat-bubble">{message.text}</div>
         </div>
-        <div className="chat-header">{message.name}</div>
-        <div className="chat-bubble">{message.text}</div>
       </div>
-    </div>
-  ));
+    );
+  });
 
   return renderedMessages;
 };
