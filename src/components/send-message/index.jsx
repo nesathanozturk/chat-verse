@@ -8,7 +8,7 @@ const SendMessage = () => {
       <form onSubmit={handleSubmit} className="containerWrapper px-2 flex">
         <input
           type="text"
-          className="input w-full focus:outline-none bg-gray-500 rounded-r-none"
+          className="input w-full focus:outline-none bg-gray-500 rounded-r-none text-white"
           value={value}
           onChange={handleChange}
         />
