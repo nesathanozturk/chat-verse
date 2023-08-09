@@ -1,7 +1,7 @@
 import useAuthContext from "../../hooks/use-auth-context";
 
 const Login = () => {
-  const { currentUser } = useAuthContext();
+  const { currentUser, handleLogin } = useAuthContext();
 
   return (
     <section className="hero min-h-screen bg-base-200">
@@ -14,7 +14,9 @@ const Login = () => {
             Elevate your chat experience and connect like never before. Start
             chatting today and let your words create magic!
           </p>
-          <button className="btn btn-primary">Let&apos;s chat!</button>
+          <button onClick={handleLogin} className="btn btn-primary">
+            Let&apos;s chat!
+          </button>
         </div>
       </div>
     </section>
