@@ -3,12 +3,10 @@ import useAuthContext from "../../hooks/use-auth-context";
 const Navbar = () => {
   const { currentUser, handleSignOut } = useAuthContext();
 
-  const isButtonHidden = currentUser ? (
+  const isButtonHidden = currentUser && (
     <button onClick={handleSignOut} className="btn btn-neutral">
       Log out
     </button>
-  ) : (
-    ""
   );
 
   return (
